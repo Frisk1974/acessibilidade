@@ -1,0 +1,67 @@
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #1a1a1a;
+}
+.vhs-effect {
+    filter: contrast(1.2) brightness(0.9);
+}
+.font-size-large {
+    font-size: 1.5rem;
+}
+.high-contrast {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+.high-contrast a {
+    color: #00f !important;
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+.modal-content {
+    background: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    max-width: 500px;
+    border-radius: 8px;
+}
+@media (prefers-reduced-motion: reduce) {
+    .vhs-effect, .fade-in {
+        animation: none !important;
+        filter: none !important;
+    }
+}
+@media (prefers-contrast: high) {
+    body {
+        background-color: #000;
+        color: #fff;
+    }
+    a {
+        color: #00f;
+    }
+}
+@media (max-width: 640px) {
+    .modal-content {
+        margin: 5% auto;
+        width: 90%;
+    }
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

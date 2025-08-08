@@ -1,1 +1,109 @@
-
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site acessível sobre The Walten Files, série de terror analógico, com informações sobre episódios, personagens e teorias.">
+    <meta name="keywords" content="The Walten Files, terror analógico, Bon's Burgers, acessibilidade, Libras">
+    <meta name="author" content="xAI">
+    <title>The Walten Files - Site Acessível</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="antialiased">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:bg-blue-600 focus:text-white focus:p-2">Pular para o conteúdo principal</a>
+    <header class="bg-gray-900 text-white py-6 text-center">
+        <h1 class="text-4xl font-bold">The Walten Files</h1>
+        <p class="mt-2 text-lg">Um site acessível sobre a série de terror analógico</p>
+    </header>
+    <div class="fixed top-4 right-4 z-50 bg-white shadow-lg rounded-lg p-4">
+        <button onclick="toggleFontSize()" class="bg-blue-600 text-white px-3 py-1 rounded mr-2 focus:outline focus:outline-2 focus:outline-blue-300" aria-label="Alternar tamanho da fonte">Fonte</button>
+        <button onclick="toggleHighContrast()" class="bg-blue-600 text-white px-3 py-1 rounded mr-2 focus:outline focus:outline-2 focus:outline-blue-300" aria-label="Alternar alto contraste">Contraste</button>
+        <button onclick="toggleVHSEffect()" class="bg-blue-600 text-white px-3 py-1 rounded focus:outline focus:outline-2 focus:outline-blue-300" aria-label="Alternar efeito VHS">VHS</button>
+    </div>
+    <nav class="bg-gray-800 text-white py-4" role="navigation" aria-label="Menu principal">
+        <ul class="flex justify-center space-x-6">
+            <li><a href="#historia" class="hover:underline focus:outline focus:outline-2 focus:outline-white" tabindex="0">História</a></li>
+            <li><a href="#personagens" class="hover:underline focus:outline focus:outline-2 focus:outline-white" tabindex="0">Personagens</a></li>
+            <li><a href="#episodios" class="hover:underline focus:outline focus:outline-2 focus:outline-white" tabindex="0">Episódios</a></li>
+            <li><a href="#teorias" class="hover:underline focus:outline focus:outline-2 focus:outline-white" tabindex="0">Teorias</a></li>
+            <li><a href="#timeline" class="hover:underline focus:outline focus:outline-2 focus:outline-white" tabindex="0">Linha do Tempo</a></li>
+        </ul>
+    </nav>
+    <main id="main-content" class="max-w-4xl mx-auto py-8 px-4">
+        <section id="historia" aria-labelledby="titulo-historia" class="mb-8">
+            <h2 id="titulo-historia" class="text-3xl font-semibold mb-4">História</h2>
+            <p class="text-lg"><em>The Walten Files</em> é uma série de terror analógico criada por Martin Walls, inspirada em fitas VHS dos anos 70. A narrativa gira em torno da Bon's Burgers, um restaurante com animatrônicos fundado por Jack Walten e Felix Kranken. Eventos trágicos, como desaparecimentos e mortes, envolvem a família Walten e a Bunny Smiles Inc. (BSI), revelados por meio de fitas misteriosas.</p>
+        </section>
+        <section id="personagens" aria-labelledby="titulo-personagens" class="mb-8">
+            <h2 id="titulo-personagens" class="text-3xl font-semibold mb-4">Personagens</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <article>
+                    <h3 class="text-xl font-medium">Jack Walten</h3>
+                    <img src="https://placehold.co/300x200" alt="Ilustração de Jack Walten, homem de meia-idade com terno e expressão séria, em estilo retro VHS." class="w-full h-auto rounded">
+                    <p>Fundador da Bon's Burgers, desaparece em 1974 após eventos misteriosos.</p>
+                </article>
+                <article>
+                    <h3 class="text-xl font-medium">Rosemary Walten</h3>
+                    <img src="https://placehold.co/300x200" alt="Ilustração de Rosemary Walten, mulher com cabelos loiros e vestido floral, em estilo retro VHS." class="w-full h-auto rounded">
+                    <p>Esposa de Jack, também desaparece em circunstâncias suspeitas.</p>
+                </article>
+                <article>
+                    <h3 class="text-xl font-medium">Sophie Walten</h3>
+                    <img src="https://placehold.co/300x200" alt="Ilustração de Sophie Walten, jovem com cabelos castanhos, em estilo retro VHS." class="w-full h-auto rounded">
+                    <p>Filha mais velha, protagonista que desvenda os segredos da família.</p>
+                </article>
+                <article>
+                    <h3 class="text-xl font-medium">Felix Kranken</h3>
+                    <img src="https://placehold.co/300x200" alt="Ilustração de Felix Kranken, homem com óculos e expressão preocupada, em estilo retro VHS." class="w-full h-auto rounded">
+                    <p>Cofundador da BSI, envolvido em eventos trágicos.</p>
+                </article>
+            </div>
+        </section>
+        <section id="episodios" aria-labelledby="titulo-episodios" class="mb-8">
+            <h2 id="titulo-episodios" class="text-3xl font-semibold mb-4">Episódios</h2>
+            <article class="mb-6">
+                <h3 class="text-xl font-medium">Episódio 1: Company Introductory Tape</h3>
+                <p class="mb-2">Lançado em 26/04/2020, apresenta a Bunny Smiles Inc. e os mistérios da Bon's Burgers.</p>
+                <div class="relative pb-9/16">
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ?cc_load_policy=1" title="Episódio 1 de The Walten Files com legendas em português" frameborder="0" allow="captions"></iframe>
+                </div>
+                <p class="mt-2"><a href="transcript-ep1.txt" class="text-blue-600 hover:underline" aria-label="Baixar transcrição do Episódio 1 em formato de texto">Transcrição do Episódio 1</a></p>
+            </article>
+            <button onclick="openModal('episodios')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 focus:outline focus:outline-2 focus:outline-blue-300" aria-label="Ver mais episódios">Ver Mais Episódios</button>
+        </section>
+        <section id="teorias" aria-labelledby="titulo-teorias" class="mb-8">
+            <h2 id="titulo-teorias" class="text-3xl font-semibold mb-4">Teorias dos Fãs</h2>
+            <p class="text-lg">Fãs especulam que Felix Kranken está ligado aos desaparecimentos da família Walten. Outra teoria sugere que os animatrônicos são possuídos por vítimas. Participe da discussão no <a href="https://www.reddit.com/r/Thewaltenfiles/" class="text-blue-600 hover:underline" aria-label="Subreddit oficial de The Walten Files">subreddit r/Thewaltenfiles</a>.</p>
+        </section>
+        <section id="timeline" aria-labelledby="titulo-timeline" class="mb-8">
+            <h2 id="titulo-timeline" class="text-3xl font-semibold mb-4">Linha do Tempo</h2>
+            <div id="timeline-content" role="region" aria-live="polite">
+                <ul class="list-disc pl-6">
+                    <li>1950s: Jack Walten e Felix Kranken criam a Bon's Burgers.</li>
+                    <li>1974: Jack Walten desaparece misteriosamente.</li>
+                    <li>Julho de 1974: Bon's Burgers fecha após incidentes.</li>
+                    <li>1982: Sophie Walten vive no Entfernt Hotel.</li>
+                </ul>
+            </div>
+            <button onclick="addTimelineEvent()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 focus:outline focus:outline-2 focus:outline-blue-300" aria-label="Adicionar novo evento à linha do tempo">Adicionar Evento</button>
+        </section>
+    </main>
+    <div id="modal-episodios" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+        <div class="modal-content">
+            <h3 id="modal-title" class="text-2xl font-semibold mb-4">Mais Episódios</h3>
+            <ul class="list-disc pl-6">
+                <li><strong>Episódio 2: Relocate Project</strong>: Explora fitas simultâneas e eventos trágicos.</li>
+                <li><strong>Episódio 3: BunnyFarm</strong>: Apresenta um jogo de arcade assombrado.</li>
+            </ul>
+            <button onclick="closeModal('episodios')" class="bg-red-600 text-white px-4 py-2 rounded mt-4 hover:bg-red-700 focus:outline focus:outline-2 focus:outline-red-300" aria-label="Fechar modal">Fechar</button>
+        </div>
+    </div>
+    <footer class="bg-gray-900 text-white text-center py-4">
+        <p>Site criado com acessibilidade para todos. &copy; 2025</p>
+        <p><a href="https://www.handtalk.me/" class="text-blue-400 hover:underline" aria-label="Plugin de acessibilidade em Libras">Acessibilidade em Libras por HandTalk</a></p>
+    </footer>
+    <script src="https://plugin.handtalk.me/web/latest/handtalk.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
