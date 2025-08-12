@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Site acessível sobre The Walten Files, série de terror analógico, com informações detalhadas sobre episódios, personagens e teorias dos fãs.">
-    <meta name="keywords" content="The Walten Files, terror analógico, Bon's Burgers, acessibilidade, Libras, Martin Walls">
+    <meta name="description" content="Site acessível sobre The Walten Files, série de terror analógico, com detalhes sobre episódios, personagens, teorias, linha do tempo e findjackwalten.com.">
+    <meta name="keywords" content="The Walten Files, findjackwalten, terror analógico, Bon's Burgers, Jack Walten, Rosemary Walten, Sophie Walten, acessibilidade, Libras, Martin Walls">
     <meta name="author" content="xAI">
     <title>The Walten Files - Site Acessível</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
 </head>
 <body class="antialiased">
     <a href="#main-content" class="sr-only focus:not-sr-only focus:bg-blue-600 focus:text-white focus:p-2">Pular para o conteúdo principal</a>
     <header class="bg-gray-900 text-white py-6 text-center" role="banner">
         <h1 class="text-4xl font-bold">The Walten Files</h1>
-        <p class="mt-2 text-lg" id="header-subtitle">Um site acessível sobre a série de terror analógico</p>
+        <p class="mt-2 text-lg" id="header-subtitle">Um site acessível sobre a série de terror analógico e findjackwalten.com</p>
     </header>
     <div class="fixed top-4 right-4 z-50 bg-white shadow-lg rounded-lg p-4 flex space-x-2" role="region" aria-label="Controles de acessibilidade">
         <button onclick="toggleFontSize()" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 focus:outline focus:outline-2 focus:outline-blue-300" aria-label="Alternar tamanho da fonte" title="Aumentar/Reduzir Fonte">
@@ -38,45 +39,46 @@
             <li><a href="#episodios" class="hover:underline focus:outline focus:outline-2 focus:outline-white" tabindex="0">Episódios</a></li>
             <li><a href="#teorias" class="hover:underline focus:outline focus:outline-2 focus:outline-white" tabindex="0">Teorias</a></li>
             <li><a href="#timeline" class="hover:underline focus:outline focus:outline-2 focus:outline-white" tabindex="0">Linha do Tempo</a></li>
+            <li><a href="#findjackwalten" class="hover:underline focus:outline focus:outline-2 focus:outline-white" tabindex="0">FindJackWalten</a></li>
         </ul>
     </nav>
     <main id="main-content" class="max-w-4xl mx-auto py-8 px-4">
         <section id="historia" aria-labelledby="titulo-historia" class="mb-8">
             <h2 id="titulo-historia" class="text-3xl font-semibold mb-4">História</h2>
-            <p class="text-lg"><em>The Walten Files</em> é uma série de terror analógico criada por Martin Walls, lançada em 2020 no YouTube. Inspirada em fitas VHS dos anos 70, a narrativa gira em torno da Bon's Burgers, um restaurante fictício fundado por Jack Walten e Felix Kranken. A história explora eventos trágicos, como desaparecimentos e mortes misteriosas envolvendo a família Walten e a Bunny Smiles Incorporated (BSI). Contada por meio de fitas VHS encontradas, a série combina animação, live-action e estética retro para criar uma atmosfera perturbadora.</p>
+            <p class="text-lg"><em>The Walten Files</em> é uma série de terror analógico criada por Martin Walls, lançada em 26/04/2020 no YouTube. Inspirada em fitas VHS dos anos 70, a narrativa centra-se na Bon's Burgers, um restaurante fictício fundado em 1965 por Jack Walten e Felix Kranken, sob a Bunny Smiles Incorporated (BSI). A história explora eventos trágicos entre 1974 e 1982, incluindo desaparecimentos e mortes misteriosas envolvendo a família Walten e funcionários da BSI. Narrada por meio de fitas VHS encontradas por Anthony Miller, um caçador de fantasmas fictício, a série combina animação, live-action e estética retro para criar uma atmosfera perturbadora. A CyberFun Tech, fundada em 1942 por Jason Pooltrick, desenvolveu os animatrônicos com IA avançada, que parecem estar no centro dos eventos sobrenaturais. O site <a href="https://www.findjackwalten.com" class="text-blue-600 hover:underline" aria-label="Site oficial findjackwalten.com">findjackwalten.com</a> expande a narrativa com detalhes sobre os desaparecimentos e a história da BSI, incluindo páginas ocultas e um minijogo.</p>
         </section>
         <section id="personagens" aria-labelledby="titulo-personagens" class="mb-8">
             <h2 id="titulo-personagens" class="text-3xl font-semibold mb-4">Personagens</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <article>
                     <h3 class="text-xl font-medium">Jack Walten</h3>
-                    <img src="https://placehold.co/300x200" alt="Ilustração de Jack Walten, homem de meia-idade com terno azul e expressão séria, em estilo VHS com ruídos visuais." class="w-full h-auto rounded">
-                    <p>Fundador da Bon's Burgers, desaparece em 1974 após eventos inexplicáveis. É o patriarca da família Walten e figura central nos mistérios da série.</p>
+                    <img src="https://placehold.co/300x200" alt="Ilustração de Jack Walten, homem de meia-idade com terno vermelho e expressão séria, em estilo VHS com ruídos visuais." class="w-full h-auto rounded">
+                    <p>Nascido em 23/09/1932, co-fundador da BSI e Bon's Burgers. Desapareceu em 11/06/1974, duas semanas antes da abertura do restaurante. Conhecido por sua dedicação à família e empresa, é uma figura central nos mistérios da série.</p>
                 </article>
                 <article>
                     <h3 class="text-xl font-medium">Rosemary Walten</h3>
-                    <img src="https://placehold.co/300x200" alt="Ilustração de Rosemary Walten, mulher com cabelos loiros e vestido floral, em estilo VHS com tons desbotados." class="w-full h-auto rounded">
-                    <p>Esposa de Jack, artista que criou os animatrônicos. Desaparece após visitar a Bon's Burgers em 1974.</p>
+                    <img src="https://placehold.co/300x200" alt="Ilustração de Rosemary Walten, mulher com cabelos castanhos e vestido floral, em estilo VHS com tons desbotados." class="w-full h-auto rounded">
+                    <p>Nascida em 20/04/1934, esposa de Jack e criadora dos animatrônicos. Desapareceu em 19/07/1974 após visitar Bon's Burgers, com suspeitas de conexão com o animatrônico Sha.</p>
                 </article>
                 <article>
                     <h3 class="text-xl font-medium">Sophie Walten</h3>
                     <img src="https://placehold.co/300x200" alt="Ilustração de Sophie Walten, jovem com cabelos castanhos e expressão melancólica, em estilo VHS." class="w-full h-auto rounded">
-                    <p>Filha mais velha dos Walten, protagonista que explora memórias fragmentadas para desvendar os segredos da família.</p>
+                    <p>Filha mais velha dos Walten, protagonista que explora memórias fragmentadas no arcade BunnyFarm, tentando desvendar os segredos da família. Vista pela última vez em 1982 no Entfernt Hotel.</p>
                 </article>
                 <article>
                     <h3 class="text-xl font-medium">Felix Kranken</h3>
                     <img src="https://placehold.co/300x200" alt="Ilustração de Felix Kranken, homem com óculos e expressão tensa, em estilo VHS com interferências." class="w-full h-auto rounded">
-                    <p>Cofundador da BSI, amigo de Jack. Envolvido em um acidente trágico que desencadeia eventos da série.</p>
+                    <p>Co-fundador da BSI, amigo de Jack. Envolvido em um acidente em 02/05/1974 que matou Edd e Molly Walten, desencadeando eventos sobrenaturais.</p>
                 </article>
                 <article>
                     <h3 class="text-xl font-medium">Bon</h3>
-                    <img src="https://placehold.co/300x200" alt="Ilustração do animatrônico Bon, um coelho azul com olhos brilhantes, em estilo VHS com ruídos." class="w-full h-auto rounded">
-                    <p>Animatrônico principal da Bon's Burgers, suspeito de estar ligado a eventos sobrenaturais.</p>
+                    <img src="https://placehold.co/300x200" alt="Ilustração do animatrônico Bon, coelho azul com olhos brilhantes, em estilo VHS com ruídos." class="w-full h-auto rounded">
+                    <p>Animatrônico principal da Bon's Burgers, suspeito de estar possuído por uma entidade ligada aos desaparecimentos de Jack e outros.</p>
                 </article>
                 <article>
                     <h3 class="text-xl font-medium">Sha</h3>
-                    <img src="https://placehold.co/300x200" alt="Ilustração do animatrônico Sha, uma ovelha branca com laço vermelho, em estilo VHS com tons escuros." class="w-full h-auto rounded">
-                    <p>Animatrônico secundário, aparece em fitas e é associado a incidentes na BSI.</p>
+                    <img src="https://placehold.co/300x200" alt="Ilustração do animatrônico Sha, ovelha branca com laço vermelho, em estilo VHS com tons escuros." class="w-full h-auto rounded">
+                    <p>Animatrônico secundário, aparece em fitas e está associado a incidentes perturbadores, possivelmente ligado a Rosemary Walten.</p>
                 </article>
             </div>
         </section>
@@ -84,7 +86,7 @@
             <h2 id="titulo-episodios" class="text-3xl font-semibold mb-4">Episódios</h2>
             <article class="mb-6">
                 <h3 class="text-xl font-medium">Episódio 1: Company Introductory Tape</h3>
-                <p class="mb-2">Lançado em 26/04/2020, apresenta a Bunny Smiles Inc. e os animatrônicos da Bon's Burgers, introduzindo o tom misterioso da série.</p>
+                <p class="mb-2">Lançado em 26/04/2020, apresenta a Bunny Smiles Inc. e os animatrônicos da Bon's Burgers, estabelecendo o tom misterioso da série.</p>
                 <div class="relative pb-9/16">
                     <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/B7Cx0Q3ob3M?cc_load_policy=1" title="Episódio 1 de The Walten Files com legendas em português" frameborder="0" allow="captions"></iframe>
                 </div>
@@ -94,34 +96,67 @@
         </section>
         <section id="teorias" aria-labelledby="titulo-teorias" class="mb-8">
             <h2 id="titulo-teorias" class="text-3xl font-semibold mb-4">Teorias dos Fãs</h2>
-            <p class="text-lg">Fãs especulam que Felix Kranken causou o acidente que matou os filhos de Jack, levando aos eventos sobrenaturais. Outra teoria sugere que os animatrônicos, como Bon e Sha, são possuídos pelas almas das vítimas. Há também debates sobre o paradeiro de Sophie Walten após 1982. Participe da discussão no <a href="https://www.reddit.com/r/Thewaltenfiles/" class="text-blue-600 hover:underline" aria-label="Subreddit oficial de The Walten Files">subreddit r/Thewaltenfiles</a> ou explore a <a href="https://thewaltenfiles.fandom.com/wiki/The_Walten_Files_Wiki" class="text-blue-600 hover:underline" aria-label="Wiki oficial de The Walten Files">The Walten Files Wiki</a>.</p>
+            <p class="text-lg">Os fãs especulam que os animatrônicos, como Bon e Sha, são possuídos pelas almas de vítimas como Jack, Rosemary, ou Charles. Outra teoria sugere que Felix Kranken causou intencionalmente o acidente que matou Edd e Molly Walten, desencadeando eventos sobrenaturais. Há debates sobre o destino de Sophie Walten após 1982, com especulações de que ela pode estar conectada ao arcade BunnyFarm. O site <a href="https://www.findjackwalten.com" class="text-blue-600 hover:underline" aria-label="Site oficial findjackwalten.com">findjackwalten.com</a> alimenta essas teorias com páginas ocultas, como /missing e /rosemarywalten, que sugerem a presença de entidades. Participe da discussão no <a href="https://www.reddit.com/r/Thewaltenfiles/" class="text-blue-600 hover:underline" aria-label="Subreddit oficial de The Walten Files">subreddit r/Thewaltenfiles</a> ou explore a <a href="https://thewaltenfiles.fandom.com/wiki/The_Walten_Files_Wiki" class="text-blue-600 hover:underline" aria-label="Wiki oficial de The Walten Files">The Walten Files Wiki</a>.</p>
         </section>
         <section id="timeline" aria-labelledby="titulo-timeline" class="mb-8">
             <h2 id="titulo-timeline" class="text-3xl font-semibold mb-4">Linha do Tempo</h2>
             <div id="timeline-content" role="region" aria-live="polite">
                 <ul class="list-disc pl-6">
-                    <li>1965: Jack Walten e Felix Kranken fundam a Bunny Smiles Inc.</li>
-                    <li>1974: Bon's Burgers abre suas portas, com animatrônicos como Bon e Sha.</li>
-                    <li>Maio de 1974: Jack Walten desaparece após eventos na BSI.</li>
-                    <li>Julho de 1974: Rosemary Walten desaparece; Bon's Burgers fecha.</li>
-                    <li>1978: Tentativa de reabertura da Bon's Burgers falha.</li>
-                    <li>1982: Sophie Walten é vista no Entfernt Hotel, explorando memórias.</li>
+                    <li>1942: Jason Pooltrick funda a CyberFun Tech, desenvolvedora de tecnologia para animatrônicos.</li>
+                    <li>1952: Norman Pooltrick assume a CyberFun Tech após a morte de Jason.</li>
+                    <li>1965: Jack Walten e Felix Kranken fundam a Bunny Smiles Inc. (BSI).</li>
+                    <li>02/05/1974: Felix Kranken causa um acidente de carro, matando Edd e Molly Walten.</li>
+                    <li>11/06/1974: Jack Walten desaparece, duas semanas antes da abertura de Bon's Burgers.</li>
+                    <li>01/07/1974: Susan Woodings desaparece após a abertura de Bon's Burgers.</li>
+                    <li>19/07/1974: Rosemary Walten desaparece após visitar Bon's Burgers.</li>
+                    <li>1975: Hillary Barclay começa a trabalhar como zeladora na BSI.</li>
+                    <li>1978: Tentativa de reabertura de Bon's Burgers falha.</li>
+                    <li>1982: Sophie Walten é vista no Entfernt Hotel, explorando memórias no arcade BunnyFarm.</li>
+                    <li>2024: Lançamento dos episódios *CyberFun Tech*, *Faces of Grief* e *Behind the Smiles*.</li>
+                    <li>2025: Lançamento do episódio *Alice*, iniciando a 2ª temporada.</li>
                 </ul>
             </div>
             <button onclick="addTimelineEvent()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 focus:outline focus:outline-2 focus:outline-blue-300" aria-label="Adicionar novo evento à linha do tempo">Adicionar Evento</button>
         </section>
-    </main>
-    <div id="modal-episodios" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
-        <div class="modal-content">
-            <h3 id="modal-title" class="text-2xl font-semibold mb-4">Mais Episódios</h3>
-            <ul class="list-disc pl-6">
-                <li><strong>Episódio 2: Relocate Project</strong> (01/06/2020): Explora fitas simultâneas e o destino dos funcionários da BSI.</li>
-                <li><strong>Episódio 3: BunnyFarm</strong> (25/10/2020): Sophie joga um arcade assombrado, revelando mortes perturbadoras.</li>
-                <li><strong>Episódio 4: CyberFun Tech</strong> (14/02/2022): Detalha experimentos da BSI e conexões com animatrônicos.</li>
-            </ul>
-            <button onclick="closeModal('episodios')" class="bg-red-600 text-white px-4 py-2 rounded mt-4 hover:bg-red-700 focus:outline focus:outline-2 focus:outline-red-300" aria-label="Fechar modal">Fechar</button>
+        <section id="findjackwalten" aria-labelledby="titulo-findjackwalten" class="mb-8">
+            <h2 id="titulo-findjackwalten" class="text-3xl font-semibold mb-4">FindJackWalten.com</h2>
+            <p class="text-lg">O site <a href="https://www.findjackwalten.com" class="text-blue-600 hover:underline" aria-label="Site oficial findjackwalten.com">findjackwalten.com</a>, lançado em 22/07/2021, é um complemento narrativo criado por Anthony Miller, um caçador de fantasmas fictício. Ele detalha o desaparecimento de Jack Walten e inclui páginas ocultas como /missing, /rosemarywalten, /brightonghosts e /bunnysmilesjustice. Atualizações até março de 2025 adicionaram um minijogo chamado "Beach Fun", onde Banny e Billy jogam pong, com glitches mostrando imagens perturbadoras de Rosemary e Sha.</p>
+            <div id="beach-fun-game" class="mt-4">
+                <h3 class="text-xl font-medium">Minijogo: Beach Fun</h3>
+                <p>Jogue como Banny (WASD) ou Billy (setas). Acerte a bola para marcar pontos. Glitches ocorrem em pontuações 19-74 (mochila de Molly e sapato de Edd) e 19-82 (imagem de Charles).</p>
+                <div id="game-canvas" class="border-2 border-gray-800"></div>
+                <p class="mt-2"><strong>Instruções:</strong> Use WASD para Banny, setas para Billy. Pressione Espaço para iniciar/pausar. Após 34-63, um glitch com Rosemary aparece.</p>
+            </div>
+            <button onclick="openModal('findjackwalten')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 focus:outline focus:outline-2 focus:outline-blue-300" aria-label="Ver mais sobre findjackwalten.com">Ver Mais sobre FindJackWalten</button>
+        </section>
+        <div id="modal-episodios" class="modal" role="dialog" aria-labelledby="modal-title-episodios" aria-modal="true">
+            <div class="modal-content">
+                <h3 id="modal-title-episodios" class="text-2xl font-semibold mb-4">Mais Episódios</h3>
+                <ul class="list-disc pl-6">
+                    <li><strong>Episódio 2: Relocate Project</strong> (28/06/2020): Explora fitas simultâneas e o destino dos funcionários da BSI, revelando eventos sombrios.</li>
+                    <li><strong>Episódio 3: BunnyFarm</strong> (19/03/2021): Sophie e Jenny encontram um arcade assombrado, descobrindo mortes perturbadoras.</li>
+                    <li><strong>Episódio 4: CyberFun Tech</strong> (02/2024): Parte 1 da coleção CyberFun Tech, detalha experimentos da BSI e conexões com animatrônicos.</li>
+                    <li><strong>Episódio 5: Faces of Grief</strong> (02/2024): Parte 2, foca em luto e perdas na narrativa da BSI.</li>
+                    <li><strong>Episódio 6: Behind the Smiles</strong> (02/2024): Final da 1ª temporada, revela segredos da BSI e CyberFun Tech.</li>
+                    <li><strong>Episódio 7: Alice</strong> (2025): Início da 2ª temporada, continua a história de Sophie e Jenny.</li>
+                </ul>
+                <button onclick="closeModal('episodios')" class="bg-red-600 text-white px-4 py-2 rounded mt-4 hover:bg-red-700 focus:outline focus:outline-2 focus:outline-red-300" aria-label="Fechar modal">Fechar</button>
+            </div>
         </div>
-    </div>
+        <div id="modal-findjackwalten" class="modal" role="dialog" aria-labelledby="modal-title-findjackwalten" aria-modal="true">
+            <div class="modal-content">
+                <h3 id="modal-title-findjackwalten" class="text-2xl font-semibold mb-4">Mais sobre FindJackWalten.com</h3>
+                <ul class="list-disc pl-6">
+                    <li><strong>/missing</strong>: Página com imagem distorcida de Charles, com texto "did you forget about me?" (2021) e "I'll see you soon" (2022).</li>
+                    <li><strong>/rosemarywalten</strong>: Cartaz de desaparecimento de Rosemary (2021), substituído por uma face distorcida (2022) e texto "I do." (2022).</li>
+                    <li><strong>/brightonghosts</strong>: Blog de Anthony Miller sobre caça a fantasmas, com links para /ghosthaunt e /endghost.</li>
+                    <li><strong>/bunnysmilesjustice</strong>: Blog de Hillary Barclay, ex-funcionária da BSI, denunciando crimes e desaparecimentos (2025).</li>
+                    <li><strong>Minijogo Beach Fun</strong>: Jogo de pong com Banny e Billy, com glitches mostrando Rosemary e Sha em estados perturbadores.</li>
+                </ul>
+                <button onclick="closeModal('findjackwalten')" class="bg-red-600 text-white px-4 py-2 rounded mt-4 hover:bg-red-700 focus:outline focus:outline-2 focus:outline-red-300" aria-label="Fechar modal">Fechar</button>
+            </div>
+        </div>
+    </main>
     <footer class="bg-gray-900 text-white text-center py-4" role="contentinfo">
         <p>Site criado com acessibilidade para todos. &copy; 2025</p>
         <p><a href="https://www.handtalk.me/" class="text-blue-400 hover:underline" aria-label="Plugin de acessibilidade em Libras">Acessibilidade em Libras por HandTalk</a></p>

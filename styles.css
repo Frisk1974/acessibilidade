@@ -51,6 +51,10 @@ body {
     clip: rect(0, 0, 0, 0);
     border: 0;
 }
+#game-canvas {
+    max-width: 600px;
+    margin: 0 auto;
+}
 @media (prefers-reduced-motion: reduce) {
     .vhs-effect, .fade-in {
         animation: none !important;
@@ -73,5 +77,8 @@ body {
     }
     .grid {
         grid-template-columns: 1fr;
+    }
+    #game-canvas {
+        max-width: 100%;
     }
 }

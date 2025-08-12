@@ -1,23 +1,25 @@
 const translations = {
     'pt-BR': {
-        headerSubtitle: 'Um site acessível sobre a série de terror analógico',
+        headerSubtitle: 'Um site acessível sobre a série de terror analógico e findjackwalten.com',
         historiaTitle: 'História',
         personagensTitle: 'Personagens',
         episodiosTitle: 'Episódios',
         teoriasTitle: 'Teorias dos Fãs',
         timelineTitle: 'Linha do Tempo',
+        findjackwaltenTitle: 'FindJackWalten.com',
         fontSizeLabel: 'Aumentar/Reduzir Fonte',
         contrastLabel: 'Ativar/Desativar Alto Contraste',
         vhsLabel: 'Ativar/Desativar Efeito VHS',
         languageLabel: 'Alternar entre Português e Inglês'
     },
     'en-US': {
-        headerSubtitle: 'An accessible website about the analog horror series',
+        headerSubtitle: 'An accessible website about the analog horror series and findjackwalten.com',
         historiaTitle: 'Story',
         personagensTitle: 'Characters',
         episodiosTitle: 'Episodes',
         teoriasTitle: 'Fan Theories',
         timelineTitle: 'Timeline',
+        findjackwaltenTitle: 'FindJackWalten.com',
         fontSizeLabel: 'Increase/Decrease Font Size',
         contrastLabel: 'Enable/Disable High Contrast',
         vhsLabel: 'Enable/Disable VHS Effect',
@@ -37,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('highContrast') === 'true') document.body.classList.add('high-contrast');
     if (localStorage.getItem('vhsEffect') === 'true') document.body.classList.add('vhs-effect');
     if (localStorage.getItem('language')) updateLanguage(localStorage.getItem('language'));
+    setupGame();
 });
 
 // Alternar tamanho da fonte
@@ -77,6 +80,7 @@ function updateLanguage(lang) {
     document.getElementById('titulo-episodios').textContent = translations[lang].episodiosTitle;
     document.getElementById('titulo-teorias').textContent = translations[lang].teoriasTitle;
     document.getElementById('titulo-timeline').textContent = translations[lang].timelineTitle;
+    document.getElementById('titulo-findjackwalten').textContent = translations[lang].findjackwaltenTitle;
     document.querySelector('button[onclick="toggleFontSize()"]').setAttribute('title', translations[lang].fontSizeLabel);
     document.querySelector('button[onclick="toggleHighContrast()"]').setAttribute('title', translations[lang].contrastLabel);
     document.querySelector('button[onclick="toggleVHSEffect()"]').setAttribute('title', translations[lang].vhsLabel);
@@ -138,4 +142,139 @@ function announce(message) {
     p.textContent = message;
     liveRegion.appendChild(p);
     setTimeout(() => p.remove(), 2000);
+}
+
+// Minijogo Beach Fun
+function setupGame() {
+    new p5(function(sketch) {
+        let ballX, ballY, ballSpeedX, ballSpeedY;
+        let bannyY, billyY, paddleHeight, paddleWidth;
+        let bannyScore = 0, billyScore = 0;
+        let gamePaused = true;
+        let showGlitch = false;
+        let glitchTimer = 0;
+        let glitchType = '';
+
+        sketch.setup = function() {
+            const canvas = sketch.createCanvas(600, 400);
+            canvas.parent('game-canvas');
+            ballX = sketch.width / 2;
+            ballY = sketch.height / 2;
+            ballSpeedX = 5;
+            ballSpeedY = 5;
+            bannyY = sketch.height / 2;
+            billyY = sketch.height / 2;
+            paddleHeight = 80;
+            paddleWidth = 10;
+        };
+
+        sketch.draw = function() {
+            sketch.background(220);
+            if (gamePaused) {
+                sketch.textAlign(sketch.CENTER);
+                sketch.textSize(20);
+                sketch.text('Pressione Espaço para Iniciar', sketch.width / 2, sketch.height / 2);
+                return;
+            }
+
+            // Desenhar raquetes
+            sketch.fill(0, 0, 255);
+            sketch.rect(20, bannyY, paddleWidth, paddleHeight); // Banny
+            sketch.fill(255, 0, 0);
+            sketch.rect(sketch.width - 30, billyY, paddleWidth, paddleHeight); // Billy
+
+            // Desenhar bola
+            sketch.fill(255);
+            sketch.ellipse(ballX, ballY, 10, 10);
+
+            // Atualizar bola
+            ballX += ballSpeedX;
+            ballY += ballSpeedY;
+
+            // Colisão com bordas superior e inferior
+            if (ballY < 0 || ballY > sketch.height) {
+                ballSpeedY *= -1;
+            }
+
+            // Colisão com raquetes
+            if (ballX < 30 && ballY > bannyY && ballY < bannyY + paddleHeight) {
+                ballSpeedX *= -1;
+                if (bannyScore === 19 && billyScore === 74) {
+                    showGlitch = true;
+                    glitchType = '1974';
+                }
+                if (bannyScore === 34 && billyScore === 63) {
+                    showGlitch = true;
+                    glitchType = 'Rosemary';
+                }
+            }
+            if (ballX > sketch.width - 30 && ballY > billyY && ballY < billyY + paddleHeight) {
+                ballSpeedX *= -1;
+                if (bannyScore === 19 && billyScore === 82) {
+                    showGlitch = true;
+                    glitchType = '1982';
+                }
+            }
+
+            // Pontuação
+            if (ballX < 0) {
+                billyScore++;
+                resetBall();
+            }
+            if (ballX > sketch.width) {
+                bannyScore++;
+                resetBall();
+            }
+
+            // Glitch
+            if (showGlitch) {
+                glitchTimer++;
+                sketch.fill(255, 0, 0);
+                sketch.textSize(20);
+                sketch.textAlign(sketch.CENTER);
+                if (glitchType === '1974') {
+                    sketch.text('GLITCH: Mochila de Molly e Sapato de Edd', sketch.width / 2, sketch.height / 2);
+                } else if (glitchType === '1982') {
+                    sketch.text('GLITCH: Imagem de Charles', sketch.width / 2, sketch.height / 2);
+                } else if (glitchType === 'Rosemary') {
+                    sketch.text('GLITCH: Rosemary Desfigurada', sketch.width / 2, sketch.height / 2);
+                }
+                if (glitchTimer > 100) {
+                    showGlitch = false;
+                    glitchTimer = 0;
+                    glitchType = '';
+                }
+            }
+
+            // Desenhar pontuação
+            sketch.fill(0);
+            sketch.textSize(20);
+            sketch.text(`Banny: ${bannyScore}`, 50, 30);
+            sketch.text(`Billy: ${billyScore}`, sketch.width - 80, 30);
+
+            // Movimento das raquetes
+            if (sketch.keyIsDown(87)) bannyY -= 5; // W
+            if (sketch.keyIsDown(83)) bannyY += 5; // S
+            if (sketch.keyIsDown(38)) billyY -= 5; // Seta cima
+            if (sketch.keyIsDown(40)) billyY += 5; // Seta baixo
+
+            // Limitar movimento das raquetes
+            bannyY = sketch.constrain(bannyY, 0, sketch.height - paddleHeight);
+            billyY = sketch.constrain(billyY, 0, sketch.height - paddleHeight);
+        };
+
+        function resetBall() {
+            ballX = sketch.width / 2;
+            ballY = sketch.height / 2;
+            ballSpeedX *= -1;
+            announce(`Pontuação: Banny ${bannyScore}, Billy ${billyScore}`);
+        }
+
+        sketch.keyPressed = function() {
+            if (sketch.keyCode === 32) { // Espaço
+                gamePaused = !gamePaused;
+                announce(gamePaused ? 'Jogo pausado.' : 'Jogo iniciado.');
+            }
+        };
+    });
 }
