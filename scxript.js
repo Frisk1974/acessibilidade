@@ -9,6 +9,7 @@ const translations = {
         findjackwaltenTitle: 'FindJackWalten.com',
         fontSizeLabel: 'Aumentar/Reduzir Fonte',
         contrastLabel: 'Ativar/Desativar Alto Contraste',
+        colorBlindLabel: 'Ativar/Desativar Modo para Daltonismo',
         vhsLabel: 'Ativar/Desativar Efeito VHS',
         languageLabel: 'Alternar entre Português e Inglês'
     },
@@ -22,6 +23,7 @@ const translations = {
         findjackwaltenTitle: 'FindJackWalten.com',
         fontSizeLabel: 'Increase/Decrease Font Size',
         contrastLabel: 'Enable/Disable High Contrast',
+        colorBlindLabel: 'Enable/Disable Color Blind Mode',
         vhsLabel: 'Enable/Disable VHS Effect',
         languageLabel: 'Switch between Portuguese and English'
     }
@@ -37,6 +39,7 @@ window.ht = new HT({
 document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('fontSizeLarge') === 'true') document.body.classList.add('font-size-large');
     if (localStorage.getItem('highContrast') === 'true') document.body.classList.add('high-contrast');
+    if (localStorage.getItem('colorBlind') === 'true') document.body.classList.add('color-blind');
     if (localStorage.getItem('vhsEffect') === 'true') document.body.classList.add('vhs-effect');
     if (localStorage.getItem('language')) updateLanguage(localStorage.getItem('language'));
     setupGame();
@@ -54,6 +57,13 @@ function toggleHighContrast() {
     document.body.classList.toggle('high-contrast');
     localStorage.setItem('highContrast', document.body.classList.contains('high-contrast'));
     announce(document.body.classList.contains('high-contrast') ? 'Alto contraste ativado.' : 'Alto contraste desativado.');
+}
+
+// Alternar modo para daltonismo
+function toggleColorBlindMode() {
+    document.body.classList.toggle('color-blind');
+    localStorage.setItem('colorBlind', document.body.classList.contains('color-blind'));
+    announce(document.body.classList.contains('color-blind') ? 'Modo para daltonismo ativado.' : 'Modo para daltonismo desativado.');
 }
 
 // Alternar efeito VHS
@@ -83,6 +93,7 @@ function updateLanguage(lang) {
     document.getElementById('titulo-findjackwalten').textContent = translations[lang].findjackwaltenTitle;
     document.querySelector('button[onclick="toggleFontSize()"]').setAttribute('title', translations[lang].fontSizeLabel);
     document.querySelector('button[onclick="toggleHighContrast()"]').setAttribute('title', translations[lang].contrastLabel);
+    document.querySelector('button[onclick="toggleColorBlindMode()"]').setAttribute('title', translations[lang].colorBlindLabel);
     document.querySelector('button[onclick="toggleVHSEffect()"]').setAttribute('title', translations[lang].vhsLabel);
     document.querySelector('button[onclick="toggleLanguage()"]').setAttribute('title', translations[lang].languageLabel);
 }
